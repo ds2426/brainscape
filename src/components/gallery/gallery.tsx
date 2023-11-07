@@ -15,7 +15,7 @@ export const Gallery: FC = () => {
     const status = useAppSelector(selectStatus);
     const [params, setParams] = useState({
       offset: 0,
-      limit: 50
+      limit: 5
     });
     const [photoCount, setPhotoCount] = useState(0);
     // TODO: add more dynamic paging to load less images at time for increasing page load time
@@ -23,8 +23,8 @@ export const Gallery: FC = () => {
       if(photoCount < 100){
         dispatch(fetchPhotos(params)).then((data) =>{
           if(data && data.payload) {
-            setPhotoCount(50)
-            setParams({offset: 50, limit: 100})
+            setPhotoCount(5)
+            setParams({offset: 6, limit: 100})
           }
         }
   
