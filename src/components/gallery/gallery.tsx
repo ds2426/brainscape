@@ -1,12 +1,12 @@
 
-import { FC, useEffect, useState } from 'react';
-import Photo from '../photo/photo';
+import { FC, Suspense, lazy, useEffect, useState } from 'react';
 import { IPhoto } from '../../model/IPhoto'
 import './gallery.css';
 import gallerySlice, { fetchPhotos, selectPhotos, selectStatus } from '../../store/gallery/slice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { RequestStatus } from '../../utils/enums';
-
+import Loading from '../loading/loading';
+const Photo = lazy(() => import('../photo/photo'));
 
 export const Gallery: FC = () => {
     const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ export const Gallery: FC = () => {
       limit: 5
     });
     const [photoCount, setPhotoCount] = useState(0);
-    // TODO: add more dynamic paging to load less images at time for increasing page load time
+    // TODO: add more dynamic paging logic to load less images at time for increasing lighthouse performance
     useEffect(() => {
       if(photoCount < 100){
         dispatch(fetchPhotos(params)).then((data) =>{
@@ -34,7 +34,9 @@ export const Gallery: FC = () => {
     <div className="gallery">
         <ul className='image-gallery'>
         {gallery && gallery.length > 0 && gallery.map((image: IPhoto) => (
-                <li key={image.id}><Photo photo={image} /></li>
+                <li key={image.id}> <Suspense fallback={<Loading />}>
+                <Photo photo={image} />
+              </Suspense></li>
             ))}
         </ul>
 
