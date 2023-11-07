@@ -28,7 +28,7 @@ const Photo: FC<IPhotoProp> = ({ photo }) => {
       }))
   return (
     <div ref={drag} className='photo'>
-        <img src={photo.url} alt={photo.title} />
+        <img width={200} height={200} src={photo.url} alt={photo.title} />
         <div className='overlay'></div>
     </div>
     
