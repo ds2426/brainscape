@@ -9,7 +9,6 @@ import { RequestStatus } from '../../utils/enums';
 
 
 export const Gallery: FC = () => {
-    const URL = "https://api.slingacademy.com/v1/sample-data/photos?limit=100";
     const dispatch = useAppDispatch();
     const gallery = useAppSelector(selectPhotos);
     const status = useAppSelector(selectStatus);
