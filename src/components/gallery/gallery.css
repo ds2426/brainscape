@@ -1,0 +1,53 @@
+ul {
+    list-style: none;
+  }
+  
+  /* Responsive image gallery rules begin*/
+  
+  .image-gallery {
+    text-align: center;
+  }
+  
+  .image-gallery > li {
+    /* fallback */
+    display: inline-block;
+    width: 200px;
+    margin: 0 5px 10px 5px;
+    /* end fallback */
+    position: relative;
+    cursor: pointer;
+  }
+  
+  @supports (display: flex) {
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .image-gallery > li {
+      flex-basis: 200px; /*width: 200px;*/
+      margin: 0;
+    }
+  
+    .image-gallery::after {
+      content: "";
+      flex-basis: 200px;
+    }
+  }
+  
+  .image-gallery li img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 5px;
+  }
+  
+
+  
+  /* hover */
+  .image-gallery li:hover .overlay {
+    transform: scale(1);
+  }

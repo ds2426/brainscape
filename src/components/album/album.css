@@ -1,0 +1,73 @@
+.album {
+    max-width: 100%;
+    min-width: 200px;
+    background: turquoise;
+    text-align: center;
+    height: 100vh;
+    padding: 20px;
+
+}
+ul {
+    list-style: none;
+    height: auto;
+  }
+  
+  /* Responsive album gallery rules begin*/
+  
+  .album-gallery {
+    text-align: center;
+  }
+  
+  .album-gallery > li {
+    /* fallback */
+    display: inline-block;
+    width: 40px;
+    margin: 0 5px 10px 5px;
+    /* end fallback */
+    position: relative;
+    cursor: pointer;
+  }
+  
+  @supports (display: flex) {
+    .album-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  
+    .album-gallery > li {
+      flex-basis: 40px; /*width: 40px;*/
+      margin: 0;
+    }
+  
+    .album-gallery::after {
+      content: "";
+      flex-basis: 40px;
+    }
+  }
+  
+  .album-gallery li img {
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 5px;
+  }
+  
+
+  
+  /* hover */
+  .album-gallery li:hover .overlay {
+    transform: scale(1);
+    opacity: 80%;
+    color: red;
+    font-weight: bolder;
+    background-color: #FFF;
+  }
+
+  .album-list {
+    text-align: left;
+    font-size: 12px;
+    margin: 10px;
+  }
