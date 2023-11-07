@@ -6,6 +6,7 @@ import Gallery from './gallery/gallery';
 import Album from './album/album';
 
 function App() {
+  
   return (
     
     <div className='app'>
