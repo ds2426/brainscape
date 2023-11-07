@@ -34,7 +34,7 @@ const FetchImages = (url: string): ApiReturnData => {
 
   useEffect(() => {
     getImages();
-  }, [url]);
+  }, []);
 
   return { images, isLoading, error };
 };

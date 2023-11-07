@@ -1,14 +1,10 @@
 
 import React, { FC } from 'react';
-import FetchImages from '../../lib/FetchImages';
-import Photo from '../photo/photo';
 import { IPhoto } from '../../model/IPhoto'
 import './album.css';
-import { DragSourceMonitor, useDrop } from 'react-dnd';
+import { useDrop } from 'react-dnd';
 import { ItemTypes } from '../../constants/ItemTypes';
-import { DropResult } from '../../model/IDropResult';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { useDispatch } from 'react-redux';
 import albumSlice from '../../store/album/slice';
 import gallerySlice from '../../store/gallery/slice';
 
